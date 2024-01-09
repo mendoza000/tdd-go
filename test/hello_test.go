@@ -8,14 +8,21 @@ import (
 func TestHello(t *testing.T) {
 	t.Run("Say hello to Omar", func(t *testing.T) {
 		want := "Hello, Omar!"
-		got := pkg.Hello("Omar")
+		got := pkg.Hello("Omar", "")
 
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("When an empty string is provided, say 'Hello, World!'", func(t *testing.T) {
 		want := "Hello, World!"
-		got := pkg.Hello("")
+		got := pkg.Hello("", "")
+
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("In Spanish", func(t *testing.T) {
+		want := "Hola, Omar!"
+		got := pkg.Hello("Omar", "Spanish")
 
 		assertCorrectMessage(t, got, want)
 	})
